@@ -96,6 +96,7 @@ jobs:
 
       - name: Get previous release tag
         id: get_previous_tag
+
         run: |
           echo TAG="$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))" >> $GITHUB_ENV
 
@@ -108,7 +109,7 @@ jobs:
         id: comparison_url
         run: |
           echo URL="https://github.com/neuroid-android-sdk/compare/${{ env.TAG }}...${{ env.HASH }}" >> $GITHUB_ENV
-        
+    
 
       - name: Commit version update
         run: |
@@ -130,8 +131,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const title = 'Update To Version: ${{ env.PACKAGE_VERSION }}';
-            const body = 'Once merged, this PR will trigger an action to release version: ${{ env.PACKAGE_VERSION }}. 
-            Please review detailed release changes: ${{ env.URL }}';
+
+            const body = 'Once merged, this PR will trigger an action to release version: ${{ env.PACKAGE_VERSION }}.Please review detailed release changes: ${{ env.URL }}';
             const headBranch = '${{ env.BRANCH_NAME }}';
             const baseBranch = 'master';
             
