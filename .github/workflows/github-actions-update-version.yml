@@ -109,7 +109,7 @@ jobs:
       - name: Create comparison URL
         id: comparison_url
         run: |
-          echo URL="https://github.com/neuroid-android-sdk/compare/${{ env.TAG }}...${{ env.HASH }}" >> $GITHUB_ENV
+          echo URL="https://github.com/Neuro-ID/neuroid-android-sdk/compare/${{ env.TAG }}...${{ env.HASH }}" >> $GITHUB_ENV
     
 
       - name: Commit version update
