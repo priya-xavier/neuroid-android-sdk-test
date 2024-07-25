@@ -98,7 +98,7 @@ jobs:
       - name: Get previous release tag
         id: get_previous_tag
         run: |
-          echo TAG="$(git describe --abbrev=0 --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+          echo TAG="$(git describe --abbrev=0 --tags)" >> $GITHUB_ENV
 
       - name: Get current commit hash
         id: get_commit_hash
